@@ -34,6 +34,15 @@ To find words starting with "pre":
 \bpre\w*\b
 ```
 This matches "prefix", "prelude", etc.
+The \b in the regex \bpre\w*\b is a word boundary anchor. Word boundaries are used to ensure that the pattern matches only at the beginning and end of a word. Here’s why \b is used in this context:
+
+	•	\bpre\w*\b:
+	•	\b: Asserts a word boundary at the start.
+	•	pre: Matches the literal string “pre”.
+	•	\w*: Matches zero or more word characters (letters, digits, or underscores).
+	•	\b: Asserts a word boundary at the end.
+
+Using \b ensures that “pre” is matched only when it appears at the beginning of a word, not as part of another word. For example, it will match “prefix” but not “depression”.
 
 ## Validating Input
 
