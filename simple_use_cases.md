@@ -38,9 +38,9 @@ The \b in the regex \bpre\w*\b is a word boundary anchor. Word boundaries are us
 
 - 	\bpre\w*\b:
 - \b: Asserts a word boundary at the start.
-	•	pre: Matches the literal string “pre”.
-	•	\w*: Matches zero or more word characters (letters, digits, or underscores).
-	•	\b: Asserts a word boundary at the end.
+- 	pre: Matches the literal string “pre”.
+- 	\w*: Matches zero or more word characters (letters, digits, or underscores).
+- 	\b: Asserts a word boundary at the end.
 
 Using \b ensures that “pre” is matched only when it appears at the beginning of a word, not as part of another word. For example, it will match “prefix” but not “depression”.
 
