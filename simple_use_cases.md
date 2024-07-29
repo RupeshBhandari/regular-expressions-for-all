@@ -36,8 +36,8 @@ To find words starting with "pre":
 This matches "prefix", "prelude", etc.
 The \b in the regex \bpre\w*\b is a word boundary anchor. Word boundaries are used to ensure that the pattern matches only at the beginning and end of a word. Here’s why \b is used in this context:
 
-	•	\bpre\w*\b:
-	•	\b: Asserts a word boundary at the start.
+- 	\bpre\w*\b:
+- \b: Asserts a word boundary at the start.
 	•	pre: Matches the literal string “pre”.
 	•	\w*: Matches zero or more word characters (letters, digits, or underscores).
 	•	\b: Asserts a word boundary at the end.
@@ -52,6 +52,33 @@ To validate an email address:
 ^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,6}$
 ```
 This pattern checks for a valid email format.
+Breakdown of the Regular Expression
+
+	1.	^: Asserts the position at the start of the string.
+	2.	[\w\.-]+:
+	•	[ and ]: Define a character class.
+	•	\w: Matches any word character (equivalent to [a-zA-Z0-9_]).
+	•	\.: Matches a literal dot (.). The backslash is used to escape the dot, as a dot normally matches any character.
+	•	-: Matches a literal hyphen (-).
+	•	+: Quantifier that matches one or more occurrences of the preceding element (in this case, any word character, dot, or hyphen).
+	•	In total: This part matches one or more characters that are either word characters, dots, or hyphens, representing the local part of the email address (the part before the @).
+	3.	@: Matches the literal “@” character.
+	4.	[a-zA-Z\d\.-]+:
+	•	[ and ]: Define a character class.
+	•	a-zA-Z: Matches any uppercase or lowercase letter.
+	•	\d: Matches any digit (equivalent to [0-9]).
+	•	\.: Matches a literal dot (.).
+	•	-: Matches a literal hyphen (-).
+	•	+: Quantifier that matches one or more occurrences of the preceding element (in this case, any letter, digit, dot, or hyphen).
+	•	In total: This part matches one or more characters that are letters, digits, dots, or hyphens, representing the domain part of the email address (the part after the @).
+	5.	\.: Matches a literal dot (.), separating the domain name and the top-level domain (TLD).
+	6.	[a-zA-Z]{2,6}:
+	•	[ and ]: Define a character class.
+	•	a-zA-Z: Matches any uppercase or lowercase letter.
+	•	{2,6}: Quantifier that matches between 2 and 6 occurrences of the preceding element (in this case, any letter).
+	•	In total: This part matches a top-level domain (TLD) that consists of 2 to 6 letters (e.g., “com”, “org”, “net”, “info”).
+	7.	$: Asserts the position at the end of the string.
+
 
 ### Example 2: Phone Number Validation
 To validate a US phone number:
